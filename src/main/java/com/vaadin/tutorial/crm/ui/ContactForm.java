@@ -22,7 +22,7 @@ public class ContactForm extends FormLayout {
 
     Button save = new Button("Save");
     Button delete = new Button("Delete");
-    Button close = new Button("Close");
+    Button close = new Button("Cancel");
 
     public ContactForm() {
         addClassName("contact-form");
