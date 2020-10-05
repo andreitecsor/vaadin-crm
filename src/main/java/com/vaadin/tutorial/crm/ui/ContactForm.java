@@ -43,20 +43,22 @@ public class ContactForm extends FormLayout {
         company.setItems(companies);
         company.setItemLabelGenerator(Company::getName);
 
-        add(firstName,
+        add(
+                firstName,
                 lastName,
                 email,
-                company,
                 status,
+                company,
                 createButtonsLayout()
-                );
+        );
     }
 
-    public void setContact(Contact contact){
-        binder.setBean(contact);
+    public void setContact(Contact contact) {
+        this.contact = contact;
+        binder.readBean(contact);
     }
 
-    private HorizontalLayout createButtonsLayout() {
+    private Component createButtonsLayout() {
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         close.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
@@ -68,9 +70,9 @@ public class ContactForm extends FormLayout {
         delete.addClickListener(click -> fireEvent(new DeleteEvent(this, contact)));
         close.addClickListener(click -> fireEvent(new CloseEvent(this)));
 
-        binder.addStatusChangeListener(evt -> save.setEnabled(binder.isValid()));
+        binder.addStatusChangeListener(event -> save.setEnabled(binder.isValid()));
 
-        return new HorizontalLayout(save,delete,close);
+        return new HorizontalLayout(save, delete, close);
     }
 
     private void validateAndSave() {
@@ -82,7 +84,7 @@ public class ContactForm extends FormLayout {
         }
     }
 
-    //Events
+    // Events
     public static abstract class ContactFormEvent extends ComponentEvent<ContactForm> {
         private Contact contact;
 
