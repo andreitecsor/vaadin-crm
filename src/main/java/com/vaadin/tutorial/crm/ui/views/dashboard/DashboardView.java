@@ -13,7 +13,6 @@ import com.vaadin.tutorial.crm.backend.service.CompanyService;
 import com.vaadin.tutorial.crm.backend.service.ContactService;
 import com.vaadin.tutorial.crm.ui.MainLayout;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Route(value = "dashboard", layout = MainLayout.class)
