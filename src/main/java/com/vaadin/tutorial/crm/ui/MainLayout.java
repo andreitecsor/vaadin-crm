@@ -18,7 +18,7 @@ import com.vaadin.tutorial.crm.ui.views.list.ListView;
         shortName = "CRM",
         offlineResources = {
                 "./style/offline.css",
-                "/images/offline.png"
+                "./images/offline.png"
         },
         enableInstallPrompt = false
 )
